@@ -4,7 +4,7 @@ This project was tested on **January 14-16th, 2025** to verify if older versions
 
 Even if this guide is tailored for an RTX 3050TI, the steps should work with older or newer GPUs.  
 For more references, check this compatibility matrix:  
-[RTX CUDA & cuDNN matrix](https://www.anaconda.com/docs/getting-started/miniconda/install#windows-installation)
+[RTX CUDA & cuDNN matrix](https://forums.developer.nvidia.com/t/cuda-compatibility-between-nvidia-rtx-a5000-and-geforce-rtx-4060-ti/264216)
 
 ---
 
