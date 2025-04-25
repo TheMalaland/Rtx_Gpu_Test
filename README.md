@@ -2,6 +2,10 @@
 
 This project was tested on **January 14-16th, 2025** to verify if older versions of PyTorch work on an **RTX 3050TI Mobile** with an **AMD Ryzen 7 5800H Mobile** in an **Asus TUF A15 laptop**.
 
+Even if this guide is tailored for an RTX 3050TI, the steps should work with older or newer GPUs.  
+For more references, check this compatibility matrix:  
+[RTX CUDA & cuDNN matrix](https://www.anaconda.com/docs/getting-started/miniconda/install#windows-installation)
+
 ---
 
 ## Introduction
