@@ -133,36 +133,61 @@ Memory Capacity: 4.29 GB
 
 5. Select option `2` to use the webcam. If the webcam window opens and uses your RTX GPU, your GPU is working correctly.
 
-6. Use `q` key to close the program and `3` to exit the program, you shouls see the results in the Results Folder
+6. Use the `q` key to close the program and `3` to exit. Results will be saved in the `Results` folder.
 
 ---
 
-## Useful Resources
+## Additional Tests and Manual Driver Installation
 
-- [PyTorch Release Notes](https://github.com/pytorch/pytorch/blob/main/RELEASE.md)  
-- [cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive)  
-- [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive)  
-- [PyTorch Official Website](https://pytorch.org/)  
-- [Video Tutorial](https://www.youtube.com/watch?v=r7Am-ZGMef8)
+### Manual Driver Installation Links:
+- **CUDA 12.6.3:** [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive)  
+- **cuDNN 9.5.1:** [cuDNN Archive](https://developer.nvidia.com/cudnn-archive)  
+- **Python 3.13:**  
+  ```bash
+  conda create -n gpu-base python=3.13
+  ```
+- **PyTorch 2.7.0:**  
+  ```bash
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+  ```
 
----
-
-## Additional Information (April 25th, 2025)
-
-I also tested downloading specific files manually from the resources above instead of using the Conda installation command:
-```bash
-conda install pytorch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 pytorch-cuda=12.4 -c pytorch -c nvidia
+### Results for PyTorch 2.7.0:
+```
+PyTorch version: 2.7.0+cu126
+CUDA available: ✅  
+CUDA version: 12.6
+Number of GPUs: 1
+✅ GPU detected.
+GPU Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU
+Memory Capacity: 4.29 GB
+✅ GPU operation completed successfully.
 ```
 
-### System Configuration:
+---
+
+## System Configuration
+
+### First Test (PyTorch 2.5.1):
 - **CUDA:** 12.6.3  
 - **cuDNN:** 9.5.1.17  
-- **Python:** 3.13  
-- **PyTorch:** 2.7 (installed via pip)  
+- **Python:** 3.11.7  
+- **PyTorch:** 2.5.1  
 - **Conda:** 25.1.1  
 - **C++:** C++17  
 
-### `nvidia-smi` Output:
+### Second Test (PyTorch 2.7.0):
+- **CUDA:** 12.9  
+- **cuDNN:** 9.5.1.17  
+- **Python:** 3.13  
+- **PyTorch:** 2.7.0  
+- **Conda:** 25.1.1  
+- **C++:** C++17  
+
+---
+
+## GPU Information
+
+### `nvidia-smi` Output (First Test):
 ```
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 566.36                 Driver Version: 566.36         CUDA Version: 12.7     |
@@ -185,3 +210,23 @@ Built on Wed_Oct_30_01:18:48_Pacific_Daylight_Time_2024
 Cuda compilation tools, release 12.6, V12.6.85
 Build cuda_12.6.r12.6/compiler.35059454_0
 ```
+
+
+### `nvidia-smi` Output (Second Test):
+```
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 576.02                 Driver Version: 576.02         CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3050 ...  WDDM  |   00000000:01:00.0  On |                  N/A |
+| N/A   55C    P8              6W /   75W |     188MiB /   4096MiB |     17%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+```
+
+
+
+
